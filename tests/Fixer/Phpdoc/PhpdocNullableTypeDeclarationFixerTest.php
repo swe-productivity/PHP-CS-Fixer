@@ -163,6 +163,27 @@ final class PhpdocNullableTypeDeclarationFixerTest extends AbstractFixerTestCase
                 PHP,
         ];
 
+        yield 'multiline annotation' => [
+            <<<'PHP'
+                <?php
+                /**
+                 * @return \Generator<array{
+                 *     a: ?int,
+                 *     b: ?int
+                 * }>
+                 */
+                PHP,
+            <<<'PHP'
+                <?php
+                /**
+                 * @return \Generator<array{
+                 *     a: int|null,
+                 *     b: int|null
+                 * }>
+                 */
+                PHP,
+        ];
+
         yield '@method tag' => [
             '<?php /** @method ?int getValue() */',
             '<?php /** @method null|int getValue() */',
