@@ -15,6 +15,7 @@ declare(strict_types=1);
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Fixer\Internal\ConfigurableFixerTemplateFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocNullableTypeDeclarationFixer;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 if (
@@ -102,4 +103,5 @@ return (new Config())
             ->in(__DIR__)
             ->append([__DIR__.'/php-cs-fixer'])
     )
+    ->registerCustomFixers([new PhpdocNullableTypeDeclarationFixer()])
 ;
