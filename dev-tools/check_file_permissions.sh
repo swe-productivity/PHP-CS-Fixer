@@ -7,6 +7,7 @@ files_with_wrong_permissions=$(
         ':!php-cs-fixer' \
         ':!dev-tools/php-cs-fixer-internal' \
         ':!dev-tools/*.php' \
+        ':!.config/git-hooks/*' \
     | grep -E "^100755 " \
     | sort -fh
 )
